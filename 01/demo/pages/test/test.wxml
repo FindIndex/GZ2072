@@ -1,0 +1,13 @@
+<!--pages/test/test.wxml-->
+<text>pages/test/test.wxml</text>
+
+
+<!-- view text button block=template  wx:if -->
+<!-- /* pages 字段 第一个 就是首页 默认启动页 */ -->
+<!-- 开发者都可以使用到微信的原生能力 -->
+
+<!-- pages window -->
+
+<!-- tabbar => color list=> path icon 只能配置最少 2 个、最多 5 个 tab -->
+
+<view>{{msg}}</view>
