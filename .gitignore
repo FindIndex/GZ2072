@@ -2,7 +2,7 @@
 node_modules
 /dist
 /共享
-/miniprogram-demo
+*/miniprogram-demo
 
 
 # local env files
