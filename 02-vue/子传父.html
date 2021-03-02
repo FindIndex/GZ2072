@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cn.vuejs.org/js/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <h1>{{msg}}</h1>
+            <hr />
+
+            <count v-on:xxx-event="xxxEventHandler" />
+        </div>
+        <script>
+            // 子
+            Vue.component("count", {
+                template: "<div><button @click='clickHandler'>{{num}}</button><button @click='num++'>+</button></div>",
+                data: function () {
+                    return {
+                        num: 10,
+                    };
+                },
+                methods: {
+                    clickHandler() {
+                        console.log('clicked');
+
+                        // 子组件内部触发 自定义事件
+                        // this.$emit('xxx-event')
+                        // this.$emit('xxx-event', 'nicholas')
+                        this.$emit('xxx-event', this.num)
+                    }
+                },
+            });
+
+
+            // 父
+            new Vue({
+                el: "#app",
+                data: {
+                    msg: "hello wrold",
+                },
+                methods: {
+                    xxxEventHandler(n) {
+                        console.log(123, n);
+                        this.msg = 'hello ' + n
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

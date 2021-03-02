@@ -1,0 +1,18 @@
+vue.js:9064 You are running Vue in development mode.
+Make sure to turn on production mode when deploying for production.
+See more tips at https://vuejs.org/guide/deployment.html
+backend.js:2237  vue-devtools  Detected Vue v2.6.12 
+var m = {num : 10}
+undefined
+m
+{num: 10}
+var n = m
+undefined
+n
+{num: 10}
+n.num = 20 
+20
+n
+{num: 20}
+m
+{num: 20}

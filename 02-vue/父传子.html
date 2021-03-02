@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cn.vuejs.org/js/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <h1>{{msg}}</h1>
+            <hr />
+
+            <count :msg="msg" xxx="nick" />
+        </div>
+        <script>
+            Vue.component("count", {
+                template: "<button>{{msg}} {{num}} {{$attrs.xxx}}</button>",
+                props: ['msg'],
+                data: function () {
+                    return {
+                        num: 10,
+                    };
+                },
+            });
+
+            new Vue({
+                el: "#app",
+                data: {
+                    msg: "hello wrold",
+                },
+            });
+
+            // 堆栈 深浅拷贝 {}==={} {}=={}
+            var Person = function (name) {
+                this.name = name;
+                // this.speak = function () {
+                //     console.log('my name is ' + this.name);
+                // }
+            };
+            Person.prototype.speak = function () {
+                console.log("my name is " + this.name);
+            };
+
+            var nick = new Person("nick");
+            var mark = new Person("mark");
+        </script>
+    </body>
+</html>
