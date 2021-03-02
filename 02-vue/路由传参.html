@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cn.vuejs.org/js/vue.js"></script>
+        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <h1>{{msg}}</h1>
+            <hr />
+
+            <router-link to="/">home</router-link>
+            <router-link to="/about">about</router-link>
+            <router-link to="/user">user</router-link>
+            <hr />
+            <!-- params 传参 -->
+            <router-link to="/user/nick">/user/nick</router-link>
+            <router-link to="/user/nicholas">/user/nicholas</router-link>
+
+            <hr />
+            <!-- query 传参 -->
+            <router-link to="/post?id=123">/post?id=123</router-link>
+            <router-link to="/post?id=456">/post?id=456</router-link>
+
+            <hr />
+            <button @click="clickHandler">btn</button>
+
+            <!-- <a href="#/about">a about</a> -->
+
+            <!-- 路由出口 -->
+            <router-view></router-view>
+        </div>
+        <script>
+            const Home = { template: "<div>Home</div>" };
+            const About = { template: "<div>About</div>" };
+            const User = {
+                template: "<h3>User {{$route.params.nickname}}</h3>",
+            };
+            const Post = { template: "<h3>Post {{$route.query.id}}</h3>" };
+
+            var router = new VueRouter({
+                routes: [
+                    {
+                        path: "/",
+                        component: Home,
+                    },
+                    {
+                        path: "/about",
+                        component: About,
+                    },
+                    {
+                        path: "/user/:nickname",
+                        component: User,
+                        name: 'xxx'
+                    },
+                    {
+                        path: "/post",
+                        component: Post,
+                        name: 'yyy'
+                    },
+                ],
+                // mode: "history"
+            });
+
+            var app = new Vue({
+                router: router,
+                el: "#app",
+                data: {
+                    msg: "hello wrold",
+                },
+                methods: {
+                    clickHandler() {
+                        console.log(router === this.$router);
+                        // this.$router.push('/about')
+                        // this.$router.push('/user/mark')
+                        // this.$router.push({
+                        //     // path: "/user", 不可用 params也是path一部分
+                        //     name: 'xxx',
+                        //     params: {
+                        //         nickname: "mark",
+                        //     },
+                        // });
+
+                        this.$router.push({
+                            // path: "/user",
+                            name: 'yyy',
+                            query: {
+                                id: "789",
+                            },
+                        });
+                    },
+                },
+            });
+
+            // SPA
+        </script>
+    </body>
+</html>

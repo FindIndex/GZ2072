@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cn.vuejs.org/js/vue.js"></script>
+        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <h1>{{msg}}</h1>
+            <hr />
+
+            <router-link to="/">home</router-link>
+            <router-link to="/about">about</router-link>
+            <router-link to="/user">user</router-link>
+            <hr />
+
+            <router-link to="/user/nick/followers"
+                >/user/nick/followers</router-link
+            >
+            <router-link to="/user/nick/following"
+                >/user/nick/following</router-link
+            >
+
+            <router-link to="/user/mark/followers"
+                >/user/mark/followers</router-link
+            >
+            <router-link to="/user/mark/following"
+                >/user/mark/following</router-link
+            >
+
+            <!-- 路由出口 -->
+            <router-view></router-view>
+        </div>
+        <script>
+            const Home = { template: "<div>Home</div>" };
+            const About = { template: "<div>About</div>" };
+            const User = {
+                template: `
+                <div>
+                    <h3>User {{$route.params.nickname}}</h3>
+                    <router-view></router-view>
+                </div>
+                `,
+            };
+
+            var router = new VueRouter({
+                routes: [
+                    {
+                        path: "/",
+                        component: Home,
+                    },
+                    {
+                        path: "/about",
+                        component: About,
+                    },
+                    {
+                        path: "/user/:nickname",
+                        component: User,
+                        name: "xxx",
+                        children: [
+                            {
+                                path: "followers",
+                                component:{ template: '<div>followers {{$route.params}}</div>'},
+                            },
+                            {
+                                path: "following",
+                                component:{ template:'<div>following</div>'},
+                            },
+                        ],
+                    },
+                ],
+            });
+
+            var app = new Vue({
+                router: router,
+                el: "#app",
+                data: {
+                    msg: "hello wrold",
+                },
+            });
+
+            // SPA
+        </script>
+    </body>
+</html>
