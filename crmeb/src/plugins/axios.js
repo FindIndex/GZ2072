@@ -9,10 +9,12 @@ import axios from "axios";
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 let config = {
-  baseURL: "http://47.115.51.185/api"
+  baseURL: "http://47.115.51.185/api",
   // timeout: 60 * 1000, // Timeout
   // withCredentials: true, // Check cross-site Access-Control
 };
+
+console.log(window);
 
 const _axios = axios.create(config);
 
