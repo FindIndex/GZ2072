@@ -43,11 +43,20 @@ const routes = [
         path: "/detail",
         name: "detail",
         component: Detail,
+        beforeEnter: function (to, from, next) {
+            console.log('beforeEnter',to);
+            next()
+        }
     },
 ];
 
 const router = new VueRouter({
     routes,
+});
+
+router.beforeEach((to, from, next) => {
+    console.log("router.beforeEach", to);
+    next()
 });
 
 export default router;
