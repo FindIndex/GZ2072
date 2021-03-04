@@ -18,6 +18,7 @@ export default {
   background: red;
   font-size: 12px;
   h3 {
+    word-break: break-all;
   }
   p {
   }

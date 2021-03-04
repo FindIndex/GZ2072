@@ -6,7 +6,7 @@
           v-for="(item, index) in detail.storeInfo.slider_image"
           :key="index"
         >
-          <van-image width="100%" fit="contain" :src="item" />
+          <van-image width="100%" height="100vw" fit="cover" :src="item" />
         </van-swipe-item>
       </van-swipe>
     </div>
@@ -22,7 +22,7 @@
         @add-cart="onAddCartClicked"
       /> -->
 
-    <button @click="show = true">show sku</button>
+    <button @click="show = true">{{sku.join()}}</button>
     <van-popup
       v-model="show"
       position="bottom"
@@ -111,7 +111,7 @@ export default {
       detail: null,
       show: false,
       sku: [],
-      currentDetail: null,
+      // currentDetail: null,
     };
   },
   created() {
@@ -189,16 +189,22 @@ export default {
         });
     },
   },
+  computed: {
+    currentDetail: function () {
+      return this.detail.productValue[this.sku.join()];
+    }
+  },
+
   watch: {
     detail: function (n) {
       // console.log(n,o);
       this.sku = n.productAttr.map((item) => item.attr_values[0]);
     },
-    sku: function (n) {
-      // console.log(n.join());
-      // console.log(this.detail.productValue[n.join()]);
-      this.currentDetail = this.detail.productValue[n.join()];
-    },
+    // sku: function (n) {
+    //   // console.log(n.join());
+    //   // console.log(this.detail.productValue[n.join()]);
+    //   this.currentDetail = this.detail.productValue[n.join()];
+    // },
     // $route(to) {
     //   // 对路由变化作出响应...
     //   console.log(to.query.id);
