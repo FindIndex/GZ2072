@@ -1,0 +1,44 @@
+<!--pages/test/test.wxml-->
+<text>pages/test/test.wxml</text>
+
+
+<!-- view text button block=template  wx:if -->
+<!-- /* pages 字段 第一个 就是首页 默认启动页 */ -->
+<!-- 开发者都可以使用到微信的原生能力 -->
+
+<!-- pages window -->
+
+<!-- tabbar => color list=> path icon 只能配置最少 2 个、最多 5 个 tab -->
+
+<view class="test" bindtap="tapHandler">{{msg}}</view>
+
+
+<button bindtap="toggleShow">toggle</button>
+<!-- <view class="box" id="{{msg}}" style="display: {{show?'block':'none'}}">box</view> -->
+
+
+<view class="box" wx:if="{{show}}">box</view>
+
+<view>{{longitude}}</view>
+<view>{{latitude}}</view>
+<map longitude="{{longitude}}" latitude="{{latitude}}"></map>
+<!-- App onLaunch  Page onLoad onReady onShow onHide -->
+
+<button bindtap="getlocal">getlocal</button>
+
+
+<button bindtap="scanHandle">scan</button>
+<view>
+
+  <!-- <view wx:for="{{friends}}" wx:key="index">{{item}}</view> -->
+
+  <view wx:for="{{friends}}" wx:for-item="friend" wx:for-index="idx" wx:key="idx">{{idx}} {{friend}}</view>
+
+</view>
+
+<!-- <xxx></xxx> -->
+<!-- <xxx /> -->
+<xxx bind:customEvent="addFriends" prop-a="{{msg}}" friends="{{friends}}">
+  <view slot="before">我是插槽内容</view>
+  <view slot="after">我是插槽内容 after</view>
+</xxx>

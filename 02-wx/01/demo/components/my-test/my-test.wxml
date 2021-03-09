@@ -1,0 +1,13 @@
+<!--components/my-test/my-test.wxml-->
+<view>
+  <slot name="before"></slot>
+  components/my-test/my-test.wxml {{propA}}
+  <slot name="after"></slot>
+
+</view>
+
+<view wx:for="{{friends}}">{{item}}</view>
+
+<button bindtap="changeProp">子组件直接修改props</button>
+
+<button bindtap="tapEvent">子组件自定义事件修改父级状态</button>
