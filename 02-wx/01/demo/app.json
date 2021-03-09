@@ -2,7 +2,8 @@
   "pages": [
     "pages/test/test",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/a/a"
   ],
   "permission": {
     "scope.userLocation": {
@@ -18,24 +19,26 @@
     "enablePullDownRefresh": true,
     "navigationStyle": "default"
   },
-
   "tabBar": {
     "color": "#f00",
     "selectedColor": "#00f",
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "./assets/icon-home.png",
-      "selectedIconPath": "./assets/icon-home-selected.png"
-    }, {
-      "pagePath": "pages/logs/logs",
-      "text": "日志"
-    },{
-      "pagePath": "pages/test/test",
-      "text": "测试"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./assets/icon-home.png",
+        "selectedIconPath": "./assets/icon-home-selected.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "日志"
+      },
+      {
+        "pagePath": "pages/test/test",
+        "text": "测试"
+      }
+    ]
   },
-
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

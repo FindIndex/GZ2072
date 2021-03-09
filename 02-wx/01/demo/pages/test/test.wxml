@@ -42,3 +42,7 @@
   <view slot="before">我是插槽内容</view>
   <view slot="after">我是插槽内容 after</view>
 </xxx>
+
+<navigator url="/pages/a/a?name=nick" hover-class="navigator-hover">跳转到新页面</navigator>
+
+<button bindtap="navTo">a</button>

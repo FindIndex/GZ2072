@@ -35,6 +35,12 @@ Page({
     })
   },
 
+  navTo() {
+    wx.navigateTo({
+      url: '/pages/a/a?name=nicholas',
+    })
+  },
+
   getlocal() {
     wx.getLocation({
       type: 'wgs84',
@@ -66,7 +72,7 @@ Page({
 
 
     
-    console.log(this, 'test load');
+    console.log('test load');
     // this 当前页面实例
 
     // setInterval(() => {
@@ -83,7 +89,8 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log(this, 'test onReady');
+    // console.log(this, 'test onReady');
+    console.log('test onReady');
 
 
     // 
@@ -105,7 +112,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(this, 'test onShow');
+    // console.log(this, 'test onShow');
+    console.log('test onShow');
+
 
   },
 
@@ -120,7 +129,8 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    console.log('test onUnload');
+    
   },
 
   /**

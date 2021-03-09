@@ -11,3 +11,4 @@
 <button bindtap="changeProp">子组件直接修改props</button>
 
 <button bindtap="tapEvent">子组件自定义事件修改父级状态</button>
+
