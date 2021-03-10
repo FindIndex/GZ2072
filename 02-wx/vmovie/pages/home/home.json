@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "find": "/components/find/find"
+  }
+}

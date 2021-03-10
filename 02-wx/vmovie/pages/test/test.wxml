@@ -1,0 +1,9 @@
+<!--pages/test/test.wxml-->
+
+
+
+<van-image width="100%" height="100" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+<van-image width="100%" height="100" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+
+<image style="width: 200px; height: 200px; background-color: #eeeeee;" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
+<image style="width: 200px; height: 200px; background-color: #eeeeee;" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>

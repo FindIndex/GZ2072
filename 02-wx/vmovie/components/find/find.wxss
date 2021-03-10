@@ -1,0 +1,4 @@
+/* components/find/find.wxss */
+.find  swiper {
+  height: 420rpx;
+}

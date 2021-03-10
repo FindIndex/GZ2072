@@ -1,0 +1,26 @@
+<!--pages/home/home.wxml-->
+<!-- <text>pages/home/home.wxml</text>
+<van-button type="primary">按钮</van-button>
+
+<van-picker columns="{{ columns }}" bind:change="onChange" />
+
+<van-toast id="van-toast" /> -->
+
+<van-nav-bar safe-area-inset-top="{{false}}" fixed="{{true}}" class="index">
+  <van-icon name="envelop-o" slot="left" size="50rpx" />
+  <van-icon name="search" slot="right" size="50rpx" />
+
+  <van-tabs active="{{ active }}" bind:change="onChange" slot="title" animated>
+    <van-tab title="标签 1" style="height: {{info.windowHeight - 46 }}px">
+      <find />
+    </van-tab>
+    <van-tab title="标签 2">标签 1</van-tab>
+    <van-tab title="标签 3">标签 1</van-tab>
+  </van-tabs>
+</van-nav-bar>
+
+
+
+<!-- <button>111</button>
+<button>222</button>
+<button>333</button> -->

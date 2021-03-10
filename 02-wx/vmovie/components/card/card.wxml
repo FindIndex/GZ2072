@@ -1,0 +1,13 @@
+<!--components/card/card.wxml-->
+<wxs src="/utils/tools.wxs" module="tools" />
+<view class="card-item" data-xxx="{{item.postid}}" bindtap="navToPost">
+  <!-- <van-image width="750rpx" height="420rpx" fit="cover" src="{{item.image}}" /> -->
+  <image style="width: 750rpx; height: 420rpx;" mode="aspectFill" src="{{item.image}}"></image>
+  <view class="info">
+    <view class="desc">
+      <text wx:for="{{item.cates}}" wx:for-item="cate">{{cate.catename}} <text>/</text></text>
+      <text>{{tools.parseTime(item.duration)}}</text>
+    </view>
+    <view class="title">{{item.title}}</view>
+  </view>
+</view>

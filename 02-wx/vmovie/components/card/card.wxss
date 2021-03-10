@@ -1,0 +1,18 @@
+/* components/card/card.wxss */
+
+.card-item {
+  position: relative;
+}
+.card-item image {
+  display: block;
+
+}
+.card-item .info {
+  text-align: left;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: white;
+  width: 100%;
+  padding: 0 20px;
+}

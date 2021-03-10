@@ -1,0 +1,17 @@
+<!--components/find/find.wxml-->
+<!-- <text>components/find/find.wxml</text> -->
+
+<view class="find">
+  <swiper indicator-dots="{{true}}" autoplay="{{false}}" indicator-color="rgba(255,255,255,0.3)"
+    indicator-active-color="rgba(255,255,255,0.8)">
+    <swiper-item wx:for="{{index.banner.list}}" wx:key="{{item.bannerid}}">
+      <van-image width="750rpx" height="420rpx" fit="cover" src="{{item.image}}" />
+    </swiper-item>
+  </swiper>
+</view>
+
+<lists data="{{index.today}}" />
+<lists data="{{index.hot}}" />
+
+
+<!-- <van-image width="750rpx" height="420rpx" fit="cover" src="https://img.yzcdn.cn/vant/catxxx.jpeg" /> -->

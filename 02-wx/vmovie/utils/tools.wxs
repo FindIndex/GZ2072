@@ -1,0 +1,13 @@
+var padStart = function (n) {
+  return (n > 9 ? n : "0" + n).toString()
+}
+
+var parseTime = function (d) {
+
+  var n = d / 1000
+  return padStart(Math.floor(n / 60)) + "'" + padStart(n % 60) + '"'
+
+}
+module.exports = {
+  parseTime: parseTime
+};

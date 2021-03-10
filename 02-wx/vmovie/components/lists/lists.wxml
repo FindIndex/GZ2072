@@ -1,0 +1,9 @@
+<!--components/lists/lists.wxml-->
+<!-- <text>components/lists/lists.wxml</text> -->
+
+<view class="lists">
+  <view class="title">{{data.selection_title}}</view>
+  <view class="card-list">
+    <card wx:for="{{data.list}}" item="{{item}}" />
+  </view>
+</view>

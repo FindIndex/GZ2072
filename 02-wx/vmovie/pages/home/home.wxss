@@ -1,0 +1,24 @@
+/* pages/home/home.wxss */
+
+/* .van-tab__pane {
+  background-color: red;
+  width: 150rpx;
+  height: 100px;
+  position: absolute;
+  top: 100px;
+  z-index: 999;
+} */
+
+.index .van-tabs {
+  position: static;
+}
+
+.index .van-tabs__content {
+  overflow-y: auto;
+  position: absolute;
+  top: 46px;
+  width: 100%;
+  left: 0;
+  /* overflow: auto; */
+}
+

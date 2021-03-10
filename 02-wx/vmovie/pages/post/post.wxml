@@ -1,0 +1,14 @@
+<!--pages/post/post.wxml-->
+<text>{{post.title}}</text>
+
+<view>{{post.content_video[0].source_link}}</view>
+<video 
+      id="myVideo" 
+      src="{{post.content_video[0].source_link}}" 
+      binderror="videoErrorCallback" 
+      show-center-play-btn='{{true}}' 
+      show-play-btn="{{true}}" 
+      controls
+      bindenterpictureinpicture='bindVideoEnterPictureInPicture'
+      bindleavepictureinpicture='bindVideoLeavePictureInPicture'
+    ></video>

@@ -1,0 +1,9 @@
+/* pages/test/test.wxss */
+.van-image {
+  display: block;
+  /* vertical-align: middle; */
+  height: 0;
+}
+image {
+  display: block;
+}
