@@ -1,0 +1,27 @@
+<!--miniprogram/pages/test/test.wxml-->
+<text>miniprogram/pages/test/test.wxml</text>
+
+<button type="primary" bindtap="getAllUser">获取所有用户</button>
+
+<view class="ul">
+  <view>用户列表</view>
+  <view class="item" wx:for="{{users}}">
+    <text>{{item.name}}</text>
+    <text>{{item.age}}</text>
+  </view>
+</view>
+
+
+<input type="text" name="name" bindinput="nameInput" />
+<input type="number" name="age" model:value="{{age}}" />
+
+<radio-group bindchange="radioChange">
+  <label class="radio">
+    <radio value="0" checked="{{gender === 0}}" />男
+  </label>
+  <label class="radio">
+    <radio value="1" checked="{{gender === 1}}" />女
+  </label>
+</radio-group>
+
+<button type="primary" bindtap="addUser">新增用户</button>
