@@ -15,7 +15,7 @@
       <find />
     </van-tab>
     <van-tab title="标签 2">标签 1</van-tab>
-    <van-tab title="标签 3">标签 1</van-tab>
+    <van-tab title="标签 3"><me /></van-tab>
   </van-tabs>
 </van-nav-bar>
 

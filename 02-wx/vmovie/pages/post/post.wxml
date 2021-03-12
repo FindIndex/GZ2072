@@ -2,13 +2,9 @@
 <text>{{post.title}}</text>
 
 <view>{{post.content_video[0].source_link}}</view>
-<video 
-      id="myVideo" 
-      src="{{post.content_video[0].source_link}}" 
-      binderror="videoErrorCallback" 
-      show-center-play-btn='{{true}}' 
-      show-play-btn="{{true}}" 
-      controls
-      bindenterpictureinpicture='bindVideoEnterPictureInPicture'
-      bindleavepictureinpicture='bindVideoLeavePictureInPicture'
-    ></video>
+<video id="myVideo" src="{{post.content_video[0].source_link}}" binderror="videoErrorCallback"
+  show-center-play-btn='{{true}}' show-play-btn="{{true}}" controls
+  bindenterpictureinpicture='bindVideoEnterPictureInPicture'
+  bindleavepictureinpicture='bindVideoLeavePictureInPicture'></video>
+
+<button wx:if="{{post}}" bindtap="addFav">收藏</button>

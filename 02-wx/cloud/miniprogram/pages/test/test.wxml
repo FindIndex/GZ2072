@@ -33,3 +33,16 @@
 
 
 <button bindtap="getUsersCloud">getAllUser 云函数</button>
+
+<button type="primary" bindtap="chooseImage">选择图片</button>
+<view class="thumbs">
+  <image style="width: 250rpx; height: 250rpx;" wx:for="{{tempFilePaths}}" src="{{item}}"></image>
+</view>
+<button type="primary" bindtap="uploadImage">上传图片</button>
+
+<!-- <image style="width: 250rpx; height: 250rpx;" wx:for="{{uploads}}" src="{{item.tempFileURL}}"></image> -->
+
+
+<view class="thumbs" wx:for="{{ss}}">
+  <image style="width: 250rpx; height: 250rpx;" wx:for="{{item.imgs}}" wx:for-item="img" src="{{img}}"></image>
+</view>

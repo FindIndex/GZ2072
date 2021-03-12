@@ -4,7 +4,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/test/test",
-    "pages/post/post"
+    "pages/post/post",
+    "pages/fav/fav"
   ],
   "window": {
     "backgroundTextStyle": "light",

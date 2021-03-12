@@ -2,35 +2,13 @@ const db = wx.cloud.database()
 // console.log(db);
 const favs = db.collection('favs')
 
-// pages/post/post.js
+// pages/fav/fav.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    post: null
-  },
-  addFav() {
-    var {
-      title,
-      image,
-      postid
-    } = this.data.post
-
-
-    favs.add({
-      data: {
-        _id: postid,
-        title,
-        image,
-      },
-      success: function () {
-        wx.showToast({
-          title: '收藏成功'
-        })
-      }
-    })
 
   },
 
@@ -38,16 +16,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.postid);
-    wx.request({
-      url: 'https://api.kele8.cn/agent/https://app.vmovier.com/apiv3/post/view?postid=' + options.postid,
-      success: (res) => {
-        this.setData({
-          post: res.data.data
-        })
-      }
+    favs.get().then((res) => {
+      console.log(res);
     })
-
   },
 
   /**

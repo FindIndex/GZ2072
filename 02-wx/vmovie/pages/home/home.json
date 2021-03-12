@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "find": "/components/find/find"
+    "find": "/components/find/find",
+    "me": "/components/me/me"
   }
 }

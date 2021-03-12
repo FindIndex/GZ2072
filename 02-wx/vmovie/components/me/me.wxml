@@ -1,0 +1,10 @@
+<!--components/me/me.wxml-->
+<!-- <text>components/me/me.wxml</text> -->
+
+<button wx:if="{{!userInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 快速登陆 </button>
+<block wx:else>
+  <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+  <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+</block>
+
+<button bindtap="navToFav">我的收藏</button>

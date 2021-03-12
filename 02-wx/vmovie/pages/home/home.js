@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    active: 0,
+    active: 2,
   },
 
   onChange(event) {
