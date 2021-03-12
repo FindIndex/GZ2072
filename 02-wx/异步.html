@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // 错误 不能实现
+            // function getJson(n) {
+            //     return setTimeout(() => {
+            //         return n + " " + Date.now();
+            //     }, 3000);
+            // }
+
+            // console.log(getJson(10));
+
+            // 回调写法
+            // function getJson(n, callback) {
+            //     setTimeout(() => {
+            //         // return n + " " + Date.now();
+            //         callback(n + " " + Date.now());
+            //     }, 3000);
+            // }
+
+            // // console.log(getJson(10));
+            // getJson(10, function (res) {
+            //     console.log(res);
+            // });
+
+            // promise
+
+            // function getJson(n) {
+            //     return new Promise((resolve, reject) => {
+            //         setTimeout(() => {
+            //             resolve(n + " " + Date.now());
+            //         }, 3000);
+            //     });
+            // }
+            // var p = getJson(10);
+            // // var p2 = getJson(20);
+
+            // p.then((result) => {
+            //     console.log(result);
+            //     getJson(result).then((r) => {
+            //         console.log(r);
+            //     });
+            // }).catch((err) => {});
+
+            // async await
+            function getJson(n) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        resolve(n + " " + Date.now());
+                    }, 3000);
+                });
+            }
+
+            // async函数返回一个 Promise 对象，可以使用then方法添加回调函数。当函数执行的时候，一旦遇到await就会先返回，等到异步操作完成，再接着执行函数体内后面的语句
+            async function xxx() {
+                var p1 = await getJson(10);
+                console.log(p1);
+                var p2 = await getJson(p1);
+                console.log(p2);
+                return p1 + "===" + p2;
+            }
+
+            xxx().then((res) => {
+                console.log(res);
+            });
+        </script>
+    </body>
+</html>

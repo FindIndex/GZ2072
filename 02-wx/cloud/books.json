@@ -1,0 +1,6 @@
+{"_id":"book1","author":"author 1","category":"novel","stock":10,"time":1564456048486,"title":"novel 1"}
+{"_id":"book3","author":"author 3","category":"science","stock":30,"title":"science 1"}
+{"_id":"book4","author":"author 3","category":"science","stock":40,"title":"science 2"}
+{"_id":"book2","author":"author 2","category":"novel","stock":20,"title":"novel 2"}
+{"_id":"book5","author":"author 4","category":"science","stock":50,"title":null}
+{"_id":"book6","author":"author 5","category":"novel","stock":"60"}

@@ -74,10 +74,83 @@ Page({
     })
   },
 
+  navToPost(e) {
+    console.log(e);
+    wx.navigateTo({
+      url: '/pages/post/post?id=' + e.currentTarget.dataset.id,
+    })
+  },
+
+  getUsersCloud() {
+    // console.log(123);
+    wx.cloud.callFunction({
+      name: 'getUsers',
+      data: {
+        name: 'nicholas'
+      },
+      success: function (res) {
+        console.log(res);
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    // const posts = db.collection('posts')
+    const dates = db.collection('dates')
+    // dates.where({
+    //   time: "20210311"
+    // }).get().then(res => {
+    //   console.log(res.data);
+    //   this.setData({
+    //     today: res.data[0]
+    //   })
+    // })
+
+
+    // db.collection('lists').get().then(res=> {
+    //   console.log(res);
+    // })
+
+    // db.collection('lists').aggregate()
+    //   .lookup({
+    //     from: 'posts',
+    //     localField: 'postid',
+    //     foreignField: '_id',
+    //     as: 'bookList',
+    //   })
+    //   .end()
+    //   .then(res => console.log(res))
+    //   .catch(err => console.error(err))
+
+    // db.collection('orders').aggregate()
+    //   .lookup({
+    //     from: 'books',
+    //     localField: 'book',
+    //     foreignField: 'title',
+    //     as: 'bookList',
+    //   })
+    //   .end()
+    //   .then(res => console.log(res))
+    //   .catch(err => console.error(err))
+
+
+    // 调用云函数
+    console.log(Date.now());
+    wx.cloud.callFunction({
+      name: 'test',
+      data: {
+        a: 1,
+        b: 20
+      },
+      success: function (res) {
+        console.log('test', res.result);
+      },
+      fail: console.error
+    })
 
   },
 

@@ -25,3 +25,11 @@
 </radio-group>
 
 <button type="primary" bindtap="addUser">新增用户</button>
+
+<!-- <view wx:for="{{posts}}">{{item.title}}</view> -->
+
+<view>{{today.time}}</view>
+<view wx:for="{{today.posts}}" data-id="{{item.id}}" bindtap="navToPost">{{item.title}}</view>
+
+
+<button bindtap="getUsersCloud">getAllUser 云函数</button>
