@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script
+            crossorigin
+            src="https://unpkg.com/react@17/umd/react.development.js"
+        ></script>
+        <script
+            crossorigin
+            src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+        ></script>
+
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <!-- es6 => es5    jsx =>  react元素-->
+    </head>
+    <body>
+        <div id="root"></div>
+        <!-- 默认浏览都支持js  text/babel 内部所有代码 都需要警告过babel转码 -->
+
+        <!-- <script type="text/babel">
+            // react 元素一旦创建 就已经固定 不能改变
+            function tick() {
+                const element = (
+                    <div>
+                        <h1>Hello React</h1>
+                        <p>now is {new Date().toLocaleString()}</p>
+                    </div>
+                );
+                ReactDOM.render(element, document.getElementById("root"));
+            }
+
+            setInterval(tick, 1000);
+
+            // 大多数 React 应用只会调用一次 ReactDOM.render()
+        </script> -->
+
+        <!-- 函数组件 无状态组件（没有自己的data 只有props） 与 class组件 有状态组件（一定有data props可有可无） -->
+        <script type="text/babel">
+            // 函数组件
+            // 组件名称必须以大写字母开头
+            function Welcome(props) {
+                // ❌ 修改入参
+                //Cannot assign to read only property 'msg' of object '#<Object>'
+                // props.msg = "xxx";
+
+                return (
+                    <h1>
+                        hello {props.msg} {props.children}
+                    </h1>
+                );
+            }
+
+            const App = function () {
+                return (
+                    <div className="app">
+                        <Welcome msg="World" />
+
+                        <Welcome msg="React" />
+
+                        <Welcome msg="插槽">
+                            <mark>哈哈哈</mark>
+                        </Welcome>
+                    </div>
+                );
+            };
+
+            ReactDOM.render(<App />, document.getElementById("root"));
+
+            // 纯函数
+            // function sum(a, b) {
+            //     return a + b;
+            // }
+            // console.log(sum(1,2));
+            // console.log(sum(1,2));
+
+            // 不能保证 同样入参 相同返回值  修改入参
+            // var m = { n: 10 };
+            // function increment(a, b) {
+            //     return (a += b);
+            // }
+            // // console.log(increment(m.n, 1));
+            // // console.log(increment(m.n, 1));
+
+            // var m = { n: 10 };
+            // function increment(a, b) {
+            //     return (a.n += b);
+            // }
+            // console.log(increment(m, 1));
+            // console.log(increment(m, 1));
+        </script>
+    </body>
+</html>

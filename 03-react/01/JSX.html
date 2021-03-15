@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script
+            crossorigin
+            src="https://unpkg.com/react@17/umd/react.development.js"
+        ></script>
+        <script
+            crossorigin
+            src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+        ></script>
+
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <!-- es6 => es5    jsx =>  react元素-->
+    </head>
+    <body>
+        <div id="root"></div>
+        <!-- 默认浏览都支持js  text/babel 内部所有代码 都需要警告过babel转码 -->
+
+        <script type="text/babel">
+            // const element = <h1>Hello, world!</h1>;
+
+            // 使用js表达式
+            const name = "nick";
+            const person = {
+                name: "nick",
+                age: 17,
+            };
+            // const element = <h1>Hello, {name}!</h1>;
+            // const element = <h1>Hello, {person.age + 1}!</h1>;
+            // const greeting = (user) =>
+            //     "my name is " + user.name + " ,im " + user.age + "years old";
+
+            // jsx 也是一个 js表达式
+            const greeting = (user) => {
+                if (user) {
+                    return (
+                        <p>
+                            my name is {user.name} ,im {user.age} years old
+                        </p>
+                    );
+                } else {
+                    return "Stranger";
+                }
+            };
+            const url = "http://www.baidu.com";
+            const xss = '<button onclick="alert(123)">btn</button>';
+            const element = (
+                <div>
+                    <h1 className="test">Hello, {greeting(person)}</h1>
+                    <a href={url} data-url={url} tabIndex="0">
+                        我的个人主页
+                    </a>
+                    <p>{xss}</p>
+                    <h4><mark>{url}</mark></h4>
+                </div>
+
+                // dataUrl => dataurl  data-url => data-url dataurl=> dataurl
+            );
+
+            ReactDOM.render(element, document.getElementById("root"));
+        </script>
+    </body>
+</html>
