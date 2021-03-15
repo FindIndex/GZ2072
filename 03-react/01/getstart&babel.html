@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script
+            crossorigin
+            src="https://unpkg.com/react@17/umd/react.development.js"
+        ></script>
+        <script
+            crossorigin
+            src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+        ></script>
+
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <!-- es6 => es5    jsx =>  react元素-->
+    </head>
+    <body>
+        <div id="root"></div>
+        <!-- 默认浏览都支持js  text/babel 内部所有代码 都需要警告过babel转码 -->
+
+        <script type="text/babel">
+            // ReactDOM.render(<h1>Hello, world!</h1>, document.getElementById("root"));
+
+            // ReactDOM.render(
+            //     <h1 title="我是title">Hello, world!</h1>,
+            //     document.getElementById("root")
+            // );
+
+            // ReactDOM.render(
+            //     <h1 title="我是title">
+            //         <p>Hello, world!</p>
+            //         <mark>标记</mark>
+            //     </h1>,
+            //     document.getElementById("root")
+            // );
+
+            // ReactDOM.render 两个参数 第一个参数 react元素(jsx) 第二个参数 需要接管的实际元素
+            // Babel 会把 JSX 转译成一个名为 React.createElement() 函数调用。
+        </script>
+
+        <!-- 不使用jsx -->
+        <script type="text/babel">
+            // const element = React.createElement("h1", null, "Hello React");
+            // const element = React.createElement(
+            //     "h1",
+            //     { title: "woshi biaoti" },
+            //     "Hello React"
+            // );
+
+            const element = React.createElement(
+                "h1",
+                { title: "woshi biaoti" },
+                React.createElement("p", null, "Hello React"),
+                React.createElement("mark", null, "标记")
+            );
+
+            // React.createElement 创建react元素
+
+            ReactDOM.render(element, document.getElementById("root"));
+        </script>
+    </body>
+</html>
