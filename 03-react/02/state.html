@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script
+            crossorigin
+            src="https://unpkg.com/react@17/umd/react.development.js"
+        ></script>
+        <script
+            crossorigin
+            src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+        ></script>
+
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <!-- es6 => es5    jsx =>  react元素-->
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <!-- <script type="text/babel">
+            const Clock = function (props) {
+                return (
+                    <div>
+                        <h1>Hello React</h1>
+                        <p>now is {props.t}</p>
+                    </div>
+                )
+            }
+
+            function tick() {
+                ReactDOM.render(<Clock t={new Date().toLocaleString()}/>, document.getElementById("root"));
+            }
+
+            setInterval(tick, 1000);
+        </script> -->
+
+        <!-- State 与 props 类似，但是 state 是私有的，并且完全受控于当前组件。 -->
+        <!-- <script type="text/babel">
+            // const Clock = function (props) {
+            //     return (
+            //         <div>
+            //             <h1>Hello React</h1>
+            //             <p>now is {props.t}</p>
+            //         </div>
+            //     )
+            // }
+
+            class Clock extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        t: new Date().toLocaleString(),
+                    };
+                }
+
+                // jsx
+                render() {
+                    return (
+                        <div>
+                            <h1>Hello React</h1>
+                            <p>now is {this.props.t}</p>
+                        </div>
+                    );
+                }
+            }
+            // 函数组件 无状态 没有this   class有状态 需要this
+
+            function tick() {
+                ReactDOM.render(
+                    <Clock t={new Date().toLocaleString()} />,
+                    document.getElementById("root")
+                );
+            }
+
+            setInterval(tick, 1000);
+        </script> -->
+
+        <script type="text/babel">
+            class Clock extends React.Component {
+                constructor(props) {
+                    // super 子类调用父类必须使用 构造子类this
+                    super(props);
+
+                    // 私有状态 初始值
+                    this.state = {
+                        t: new Date().toLocaleString(),
+                        count: 0,
+                    };
+                }
+                // jsx
+                render() {
+                    return (
+                        <div>
+                            <h1>Hello React</h1>
+                            <p>now is {this.state.t}</p>
+                            <p>{this.state.count}</p>
+                        </div>
+                    );
+                }
+
+                componentDidMount() {
+                    // console.log("挂在成功", this);
+                    setInterval(() => {
+                        // setState是修改状态的 唯一方法
+                        this.setState({
+                            t: new Date().toLocaleString(),
+                        });
+
+                        // ❌
+                        // this.state.t = 'xx'
+                    }, 1000);
+
+                    setInterval(() => {
+                        // 因为 this.props 和 this.state 可能会异步更新，所以你不要依赖他们的值来更新下一个状态。
+                        // this.setState({
+                        //     count: this.state.count + 1,
+                        // });
+
+                        // 让 setState() 接收一个函数而不是一个对象
+                        this.setState((state, props) => ({
+                            count: state.count + 1,
+                        }));
+                        // console.log(this.state.count);
+                    }, 100);
+                }
+                componentWillUnmount() {}
+            }
+
+            ReactDOM.render(<Clock />, document.getElementById("root"));
+        </script>
+    </body>
+</html>

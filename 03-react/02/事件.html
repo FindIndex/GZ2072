@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script
+            crossorigin
+            src="https://unpkg.com/react@17/umd/react.development.js"
+        ></script>
+        <script
+            crossorigin
+            src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+        ></script>
+
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <!-- es6 => es5    jsx =>  react元素-->
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <!-- <script type="text/babel">
+            const Clock = function (props) {
+                const clickhandler = function (e) {
+                    console.log(123, e);
+                    // e 是一个合成事件
+                    // ❌ return false
+                    e.preventDefault();
+                    
+                };
+
+                return (
+                    <div>
+                        <h1>Hello React</h1>
+                        <a href="http://www.baidu.com" onClick={clickhandler}>
+                            百度
+                        </a>
+                    </div>
+                );
+            };
+
+            ReactDOM.render(<Clock />, document.getElementById("root"));
+        </script> -->
+
+        <script type="text/babel">
+            class Clock extends React.Component {
+                constructor(props) {
+                    super(props);
+
+                    this.state = {
+                        bool: true,
+                    };
+
+                    // 一定要绑定 this
+                    // 为了在回调中使用 `this`，这个绑定是必不可少的
+                    this.clickHandler = this.clickHandler.bind(this);
+                }
+                clickHandler(e) {
+                    console.log(123, this, e);
+
+                    //
+                    this.setState((state) => {
+                        return {
+                            bool: !state.bool,
+                        };
+                    });
+                }
+
+                render() {
+                    return (
+                        <div>
+                            <button onClick={this.clickHandler}>toggle</button>
+                            <div>{this.state.bool ? <h1>On</h1> : "Off"}</div>
+                        </div>
+                    );
+                }
+            }
+
+            ReactDOM.render(<Clock />, document.getElementById("root"));
+        </script>
+    </body>
+</html>
