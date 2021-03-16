@@ -52,10 +52,11 @@
                         bool: true,
                     };
 
-                    // 一定要绑定 this
+                    // 方法 1 一定要绑定 this
                     // 为了在回调中使用 `this`，这个绑定是必不可少的
-                    this.clickHandler = this.clickHandler.bind(this);
+                    // this.clickHandler = this.clickHandler.bind(this);
                 }
+                // 方法 1 3
                 clickHandler(e) {
                     console.log(123, this, e);
 
@@ -67,10 +68,29 @@
                     });
                 }
 
+                // 方法 2
+                // 实验性的 public class fields 语法
+                // clickHandler = (e) => {
+                //     console.log(123, this, e);
+
+                //     //
+                //     this.setState((state) => {
+                //         return {
+                //             bool: !state.bool,
+                //         };
+                //     });
+                // };
+
                 render() {
                     return (
                         <div>
-                            <button onClick={this.clickHandler}>toggle</button>
+                            {/* 方法 1 2*/}
+                            {/* <button onClick={this.clickHandler}>toggle</button> */}
+
+                            {/* 每次渲染 时都会创建不同的回调函数  性能问题 */}
+                            <button onClick={() => this.clickHandler()}>
+                                toggle
+                            </button>
                             <div>{this.state.bool ? <h1>On</h1> : "Off"}</div>
                         </div>
                     );

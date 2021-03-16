@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script
+            crossorigin
+            src="https://unpkg.com/react@17/umd/react.development.js"
+        ></script>
+        <script
+            crossorigin
+            src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+        ></script>
+
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <!-- es6 => es5    jsx =>  react元素-->
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script type="text/babel">
+            class Clock extends React.Component {
+                constructor(props) {
+                    super(props);
+
+                    this.state = {
+                        bool: true,
+                    };
+                }
+                // clickHandler(params, e) {
+                //     console.log(123, this, params, e);
+
+                //     //
+                //     this.setState((state) => {
+                //         return {
+                //             bool: !state.bool,
+                //         };
+                //     });
+                // }
+
+
+                // public feild 不能穿参数
+                clickHandler = (e) => {
+                    console.log(123, this, e);
+
+                    //
+                    this.setState((state) => {
+                        return {
+                            bool: !state.bool,
+                        };
+                    });
+                };
+
+                // 箭头函数 和 bind
+                // <button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
+                // <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
+
+                render() {
+                    return (
+                        <div>
+                            {/* <button onClick={this.clickHandler.bind(this, 456)}>
+                                toggle
+                            </button> */}
+
+                            {/* <button onClick={(e) => this.clickHandler(789, e)}>
+                                toggle
+                            </button> */}
+
+                            <button onClick={this.clickHandler}>
+                                toggle
+                            </button>
+
+                            <div>{this.state.bool ? <h1>On</h1> : "Off"}</div>
+                        </div>
+                    );
+                }
+            }
+
+            ReactDOM.render(<Clock />, document.getElementById("root"));
+        </script>
+
+        <!-- 计数器组件  -->
+        <!-- https://cn.vuejs.org/v2/guide/components.html#%E7%BB%84%E4%BB%B6%E7%9A%84%E5%A4%8D%E7%94%A8 -->
+    </body>
+</html>
